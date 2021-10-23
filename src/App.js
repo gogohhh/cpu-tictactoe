@@ -51,6 +51,13 @@ function App() {
 
     if(turnoCPU){
 
+      const bloquearLineas = paraGanar( 'X', 'X', null ); /** Si el jugador esta por ganar, la cpu tira en ese espacio */
+      if(bloquearLineas.length > 0){
+        const bloquear = bloquearLineas[0].filter(index => squares[index] === null)[0];
+        putCPU(bloquear);
+        return;
+      }
+
       const lineaGanadora = paraGanar( 'O', 'O', null );
       if(lineaGanadora.length > 0){
         const posicionGanadora = lineaGanadora[0].filter(index => squares[index] === null)[0];
