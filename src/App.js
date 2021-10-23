@@ -51,6 +51,13 @@ function App() {
 
     if(turnoCPU){
 
+      const lineaGanadora = paraGanar( 'O', 'O', null ); /** El turno de la CPU debe buscar la victoria primero, despues bloquear */
+      if(lineaGanadora.length > 0){
+        const posicionGanadora = lineaGanadora[0].filter(index => squares[index] === null)[0];
+        putCPU(posicionGanadora);
+        return;
+      }
+
       const bloquearLineas = paraGanar( 'X', 'X', null ); /** Si el jugador esta por ganar, la cpu tira en ese espacio */
       if(bloquearLineas.length > 0){
         const bloquear = bloquearLineas[0].filter(index => squares[index] === null)[0];
@@ -58,10 +65,10 @@ function App() {
         return;
       }
 
-      const lineaGanadora = paraGanar( 'O', 'O', null );
-      if(lineaGanadora.length > 0){
-        const posicionGanadora = lineaGanadora[0].filter(index => squares[index] === null)[0];
-        putCPU(posicionGanadora);
+
+      const continuarLinea = paraGanar( 'O', null, null );
+      if (continuarLinea.length > 0) {
+        putCPU(continuarLinea[0].filter(index => squares[index] === null)[0]);
         return;
       }
       
