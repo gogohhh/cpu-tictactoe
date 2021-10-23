@@ -95,6 +95,10 @@ function App() {
   return (
     <div>
       <main>
+        <div className="title">
+          <h4 className="nombre">Tic Tac Toe</h4>
+          <span className="subtitle">Usuario: X    vs    CPU: O</span>
+        </div>
         <Board>
           {squares.map((square, index) => 
               

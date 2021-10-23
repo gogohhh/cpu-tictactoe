@@ -8,6 +8,24 @@ main{
   margin: 100px auto 0;
 }
 
+.title{
+  text-align: center;
+  margin: 10px;
+}
+
+.nombre{
+  font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: blue;
+  font-size: 3rem;
+  margin-bottom: 5px;
+}
+
+.subtitle{
+  font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: black;
+  font-size: 1.5rem;
+}
+
 
 
 div.board {
