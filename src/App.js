@@ -23,6 +23,24 @@ function App() {
   useEffect( () => {
     const turnoCPU = squares.filter(square => square !== null).length % 2 === 1;
 
+    const paraGanar = (a, b, c) =>{ 
+      return lines.filter( squareIndexes => {
+        const squareValues = squareIndexes.map(index => squares[index]);
+        return JSON.stringify( [a, b, c].sort()) === JSON.stringify(squareValues.sort());
+      });
+    };
+
+    const ganador = paraGanar( 'X', 'X', 'X').length > 0;
+    const CPUganador = paraGanar( 'O', 'O', 'O').length > 0;
+    
+    if(ganador){
+      alert('Ganador: Jugador X');
+    }
+
+    if(CPUganador){
+      alert('Ganador: CPU O')
+    }
+
     const putCPU = index => {
       let newSquares = squares;
       newSquares[index] = 'O';
