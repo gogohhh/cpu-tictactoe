@@ -30,6 +30,8 @@ function App() {
       });
     };
 
+    const mismoIndex = squares.map(( square, index : number ) => square === null ? index : null).filter( val => val !== null);
+
     const ganador = paraGanar( 'X', 'X', 'X').length > 0;
     const CPUganador = paraGanar( 'O', 'O', 'O').length > 0;
     
@@ -48,8 +50,14 @@ function App() {
     };
 
     if(turnoCPU){
-      const mismoIndex = squares.map(( square, index : number ) => square === null ? index : null).filter( val => val !== null);
 
+      const lineaGanadora = paraGanar( 'O', 'O', null );
+      if(lineaGanadora.length > 0){
+        const posicionGanadora = lineaGanadora[0].filter(index => squares[index] === null)[0];
+        putCPU(posicionGanadora);
+        return;
+      }
+      
       const randomIndex = mismoIndex[ Math.ceil( Math.random()*mismoIndex.length ) ]
 
       putCPU(randomIndex);
