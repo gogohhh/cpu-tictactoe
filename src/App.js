@@ -92,6 +92,10 @@ function App() {
     }
   }
 
+  function reload() {
+    window.location.reload(true);
+  }
+
   return (
     <div>
       <main>
@@ -99,6 +103,7 @@ function App() {
           <h4 className="nombre">Tic Tac Toe</h4>
           <span className="subtitle">Usuario: X    vs    CPU: O</span>
         </div>
+
         <Board>
           {squares.map((square, index) => 
               
@@ -109,6 +114,7 @@ function App() {
             )
           }
         </Board>
+        
         {!!ganar && ganar === 'X' &&(
           <div className='resultado usuario'>
            ¡GANASTE!
@@ -120,6 +126,10 @@ function App() {
             ¡PERDISTE!
           </div>
         )}
+
+        <div class="reset">
+          <button type="submit" class="btn-reiniciar" onClick={reload}>Limpiar</button>
+        </div>
       </main>
     </div>
   );
