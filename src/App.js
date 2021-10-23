@@ -20,6 +20,8 @@ function App() {
 
   const [squares, setSqueares] = useState(defaultSquares());
 
+  const [ganar, setGanar] = useState(null);
+
   useEffect( () => {
     const turnoCPU = squares.filter(square => square !== null).length % 2 === 1;
 
@@ -36,11 +38,11 @@ function App() {
     const CPUganador = paraGanar( 'O', 'O', 'O').length > 0;
     
     if(ganador){
-      alert('Ganador: Jugador X');
+      setGanar('X');
     }
 
     if(CPUganador){
-      alert('Ganador: CPU O')
+      setGanar('O');
     }
 
     const putCPU = index => {
@@ -103,6 +105,17 @@ function App() {
             )
           }
         </Board>
+        {!!ganar && ganar === 'X' &&(
+          <div className='resultado usuario'>
+           ¡GANASTE!
+          </div>
+        )}
+
+        {!!ganar && ganar === 'O' &&(
+          <div className='resultado cpu'>
+            ¡PERDISTE!
+          </div>
+        )}
       </main>
     </div>
   );
