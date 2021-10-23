@@ -32,7 +32,7 @@ function App() {
       });
     };
 
-    const mismoIndex = squares.map(( square, index : number ) => square === null ? index : null).filter( val => val !== null);
+    const mismoIndex = squares.map(( square, index  ) => square === null ? index : null).filter( val => val !== null);
 
     const ganador = paraGanar( 'X', 'X', 'X').length > 0;
     const CPUganador = paraGanar( 'O', 'O', 'O').length > 0;
